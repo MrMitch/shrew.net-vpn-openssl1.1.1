@@ -14,15 +14,15 @@ include_directories(
 	${IKE_SOURCE_DIR}/source/libidb
 	${IKE_SOURCE_DIR}/source/libith
 	${IKE_SOURCE_DIR}/source/liblog
-	${QT_INCLUDES} )
+	${QT5_INCLUDES} )
 
 link_directories(
 	${IKE_SOURCE_DIR}/source/libip
-	${QT_LIBRARY_DIR} )
+	${QT5_LIBRARY_DIR} )
 
-include( ${QT_USE_FILE} )
+# include( ${QT_USE_FILE} )
 
-qt4_wrap_ui(
+qt5_wrap_ui(
 	UIH_FILES
 	about.ui
 	conflict.ui
@@ -30,11 +30,11 @@ qt4_wrap_ui(
 	site.ui
 	topology.ui )
 
-qt4_wrap_cpp(
+qt5_wrap_cpp(
 	CXX_FILES
 	qikea.h )
 
-qt4_add_resources(
+qt5_add_resources(
 	QRC_FILES
 	qikea.qrc )
 
@@ -57,7 +57,10 @@ target_link_libraries(
 	ss_log
 	crypto
 	pthread
-	${QT_LIBRARIES} )
+  Qt5::Core 
+  Qt5::Gui
+  Qt5::Widget
+  ${QT_LIBRARIES} )
 
 if( APPLE )
 

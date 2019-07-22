@@ -528,16 +528,17 @@ if( QTGUI )
 	add_definitions( -DQT_THREAD_SUPPORT )
 
 	find_package(
-		Qt4
-		COMPONENTS QtCore QtGui REQUIRED )
+		Qt5
+    COMPONENTS Core Widgets Gui REQUIRED )
 
-	if( NOT QT_QTGUI_FOUND )
+
+  if( NOT Qt5Gui_FOUND )
 
 		message(
 			FATAL_ERROR
-			"Unable to locate required package : QT" )
+      "Unable to locate required package : QT5")
 
-	endif( NOT QT_QTGUI_FOUND )
+  endif( NOT Qt5Gui_FOUND )
 		
 	# success
 
